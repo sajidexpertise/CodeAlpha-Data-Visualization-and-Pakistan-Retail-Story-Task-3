@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PRISM: an interactive Pakistan retail data visualization dashboard for CodeAlpha Task 3.">
+  <title>PRISM | CodeAlpha Data Visualization Task 3</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%230b7df3%22/><path d=%22M14 44h8V30h-8zm14 0h8V20h-8zm14 0h8V10h-8z%22 fill=%22white%22/></svg>">
+  <link rel="stylesheet" href="dashboard/styles.css">
+</head>
+<body>
+  <main class="dashboard-shell">
+    <header class="hero">
+      <section class="brand-block">
+        <div class="spectrum" aria-hidden="true"></div>
+        <div>
+          <p class="eyebrow">CODEALPHA · DATA ANALYTICS · TASK 3</p>
+          <h1>PRISM</h1>
+          <h2>Pakistan Retail Story</h2>
+          <p>A visual journey from products to people.</p>
+        </div>
+      </section>
+      <section class="filter-panel" aria-label="Dashboard filters">
+        <label><span>Year</span><select id="yearFilter"><option value="2024">2024</option><option value="2023">2023</option><option value="all">All Years</option></select></label>
+        <label><span>Region</span><select id="regionFilter"><option value="all">All Regions</option></select></label>
+        <label><span>Category</span><select id="categoryFilter"><option value="all">All Categories</option></select></label>
+        <label><span>Channel</span><select id="channelFilter"><option value="all">All Channels</option></select></label>
+        <button id="resetFilters" type="button">Reset</button>
+        <button id="downloadCsv" type="button" class="primary">Download CSV</button>
+      </section>
+    </header>
+
+    <section class="kpi-grid" aria-label="Key performance indicators">
+      <article class="kpi blue"><span class="icon">▥</span><div><strong id="revenueKpi">—</strong><h3>Revenue</h3><p id="revenueDelta">Selected data</p></div></article>
+      <article class="kpi green"><span class="icon">◒</span><div><strong id="ordersKpi">—</strong><h3>Orders</h3><p id="ordersDelta">Selected data</p></div></article>
+      <article class="kpi yellow"><span class="icon">●●</span><div><strong id="customersKpi">—</strong><h3>Customers</h3><p>Unique customer IDs</p></div></article>
+      <article class="kpi coral"><span class="icon">◔</span><div><strong id="marginKpi">—</strong><h3>Margin</h3><p id="profitKpi">Gross profit</p></div></article>
+    </section>
+
+    <section class="story-grid">
+      <article class="panel sales-panel">
+        <div class="panel-heading"><div><p class="section-number">01</p><h3>How Sales Moved</h3><p>Monthly revenue trend · PKR millions</p></div><span class="badge" id="growthBadge">Trend</span></div>
+        <div class="chart-wrap tall"><canvas id="monthlyChart"></canvas></div>
+      </article>
+
+      <article class="panel category-panel">
+        <div class="panel-heading"><div><p class="section-number">02</p><h3>What Pakistan Bought</h3><p>Share of revenue by product category</p></div></div>
+        <div id="categoryMosaic" class="category-mosaic"></div>
+      </article>
+
+      <article class="panel digital-panel">
+        <div class="panel-heading"><div><p class="section-number">03</p><h3>Digital Share</h3><p>Online and mobile-app revenue</p></div></div>
+        <div class="gauge-wrap"><canvas id="digitalChart"></canvas><div class="gauge-label"><strong id="digitalShare">—</strong><span>Digital Share</span></div></div>
+        <div class="split-stats"><div><span>Digital Sales</span><strong id="digitalSales">—</strong></div><div><span>Offline Sales</span><strong id="offlineSales">—</strong></div></div>
+      </article>
+
+      <article class="panel region-panel">
+        <div class="panel-heading"><div><p class="section-number">04</p><h3>Where Growth Happened</h3><p>Revenue by region · PKR millions</p></div></div>
+        <div class="chart-wrap"><canvas id="regionChart"></canvas></div>
+      </article>
+
+      <article class="panel journey-panel">
+        <div class="panel-heading"><div><p class="section-number">05</p><h3>How Customers Shop</h3><p>Channel mix and category journey</p></div></div>
+        <div id="journeyFlow" class="journey-flow"></div>
+      </article>
+
+      <article class="panel insight-panel">
+        <div class="panel-heading"><div><p class="section-number">06</p><h3>The Story in Four Signals</h3><p>Decision-ready findings from the current view</p></div></div>
+        <div id="insightCards" class="insight-cards"></div>
+      </article>
+    </section>
+
+    <section class="method-note">
+      <strong>Data note:</strong> This is a reproducible synthetic retail dataset created for training and portfolio demonstration. Values are not official statistics or business claims.
+    </section>
+    <footer><span>Prepared by <strong>Sajid Ali</strong></span><span>Python · Pandas · Matplotlib · Seaborn · Chart.js</span><span>Data for People</span></footer>
+  </main>
+  <noscript>This dashboard requires JavaScript for filters and charts.</noscript>
+  <script src="dashboard/vendor/chart.umd.min.js"></script>
+  <script src="dashboard/data.js"></script>
+  <script src="dashboard/app.js"></script>
+</body>
+</html>
