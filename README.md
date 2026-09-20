@@ -5,15 +5,23 @@ Prepared by **Sajid Ali**
 
 PRISM is a portfolio-ready, interactive retail storytelling dashboard. It transforms a reproducible synthetic transaction dataset into clear charts, responsive KPIs, filters, downloadable records, and decision-focused insights.
 
-## Dashboard preview
+## 📊 Interactive Dashboard Preview
 
 <p align="center">
-  <a href="./index.html">
-    <img src="dashboard/dashboard.png" alt="PRISM Pakistan Retail Story dashboard" width="100%">
+  <a href="https://sajidexpertise.github.io/CodeAlpha-Data-Visualization-and-Pakistan-Retail-Story-Task-3/">
+    <img src="dashboard/dashboard.png"
+         alt="PRISM Pakistan Retail Story – CodeAlpha Task 3"
+         width="100%">
   </a>
 </p>
 
-> After GitHub Pages is enabled, replace the link above with your published URL so the preview opens the live dashboard.
+<p align="center">
+  <strong>
+    <a href="https://sajidexpertise.github.io/CodeAlpha-Data-Visualization-and-Pakistan-Retail-Story-Task-3/">
+      🚀 Open the Live Interactive Dashboard
+    </a>
+  </strong>
+</p>
 
 ## How this matches CodeAlpha Task 3
 
